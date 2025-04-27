@@ -4,11 +4,19 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            transparent_background = true})
-        vim.cmd.colorscheme "catppuccin"
-        vim.filetype.add({
-            pattern = { [".*/hypr/.*%.conf"] = "hyprlang" }
+            --[transparent_background = true,
+            integration = {
+                neotree = true,
+                telescope = {
+                    enabled = true,
+                    -- style = "nvchad"
+                },
+                treesitter = true,
+            },
         })
-    end
+        vim.cmd.colorscheme("catppuccin")
+        vim.filetype.add({
+            pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+        })
+    end,
 }
-
